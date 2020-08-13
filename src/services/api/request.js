@@ -13,7 +13,7 @@ polyfill();
  * @param {string} method - The HTTP verb to use, e.g., 'GET' or 'POST'.
  * @param {array|object|null} data - Optional. Data to send along with the request.
  * @returns {Promise} - A Promise on successful completion of the request that resolves to JSON.
- * @throws {httpError} - Throws an HTTP error if the response was not successful.
+ * @throws {object} - Throws an HTTP error if the response was not successful.
  */
 export default async (endpoint, method, data = null) => {
   const init = { method };
