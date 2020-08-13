@@ -1,4 +1,12 @@
 import request from './services/api/request';
 
-request('/wp/v2/posts', 'GET')
-  .then(console.log);
+const fetchData = async () => {
+  try {
+    const data = await request('/wp/v2/route-does-not-exist', 'GET');
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+fetchData();
