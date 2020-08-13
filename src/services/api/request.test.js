@@ -35,7 +35,7 @@ test('Should throw an error if the request failed.', async () => {
 
   // Run the request using the mocked response.
   try {
-    await request('/wp/v2/posts', 'GET');
+    await request('/path/does/not/exist', 'GET');
   } catch (error) {
     expect(error).toEqual({
       data: {

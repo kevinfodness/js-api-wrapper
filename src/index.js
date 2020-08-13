@@ -1,8 +1,8 @@
-import request from './services/api/request';
+import getLatestPosts from './services/api/get-latest-posts';
 
 const fetchData = async () => {
   try {
-    const data = await request('/wp/v2/route-does-not-exist', 'GET');
+    const data = await getLatestPosts();
     console.log(data);
   } catch (error) {
     console.error(error);

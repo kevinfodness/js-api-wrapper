@@ -1,9 +1,9 @@
 import fetch from 'isomorphic-fetch';
-import get from './get';
+import getLatestPosts from './get-latest-posts';
 
 jest.mock('isomorphic-fetch');
 
-test('Should make a GET request to the API.', async () => {
+test('Should get the latest posts from the API.', async () => {
   expect.assertions(1);
 
   // Mock the return value to avoid hitting the API.
@@ -19,31 +19,31 @@ test('Should make a GET request to the API.', async () => {
   });
 
   // Run the request using the mocked response.
-  const data = await get('/wp/v2/posts');
+  const data = await getLatestPosts();
   expect(data.length).toEqual(5);
 });
 
-test('Should throw an error if the GET request failed.', async () => {
+test('Should throw an error if the request failed.', async () => {
   expect.assertions(1);
 
   // Mock the return value to avoid hitting the API.
   fetch.mockResolvedValue({
     ok: false,
-    status: 404,
-    statusText: 'Not Found',
+    status: 500,
+    statusText: 'Internal Server Error',
   });
 
   // Run the request using the mocked response.
   try {
-    await get('/path/does/not/exist');
+    await getLatestPosts();
   } catch (error) {
     expect(error).toEqual({
       data: {
         ok: false,
-        status: 404,
-        statusText: 'Not Found',
+        status: 500,
+        statusText: 'Internal Server Error',
       },
-      message: 'Not Found',
+      message: 'Internal Server Error',
     });
   }
 });
