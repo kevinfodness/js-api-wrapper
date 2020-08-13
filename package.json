@@ -1,0 +1,38 @@
+{
+  "name": "js-api-wrapper",
+  "version": "1.0.0",
+  "description": "An example of the API wrapper pattern in JavaScript.",
+  "main": "index.js",
+  "engines": {
+    "node": "12",
+    "npm": "6"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinfodness/js-api-wrapper.git"
+  },
+  "author": "Kevin Fodness",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kevinfodness/js-api-wrapper/issues"
+  },
+  "homepage": "https://github.com/kevinfodness/js-api-wrapper#readme",
+  "devDependencies": {
+    "jest": "^26.4.0",
+    "webpack": "^4.44.1"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.3.0",
+    "core-js": "^3.6.5",
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^2.2.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
