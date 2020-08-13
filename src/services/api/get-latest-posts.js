@@ -6,4 +6,4 @@ import get from './get';
  * @returns {Promise} - A Promise on successful completion of the request that resolves to JSON.
  * @throws {object} - Throws an HTTP error if the response was not successful.
  */
-export default async () => await get('/wp/v2/posts');
+export default () => get('/wp/v2/posts');

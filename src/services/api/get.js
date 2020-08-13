@@ -7,4 +7,4 @@ import request from './request';
  * @returns {Promise} - A Promise on successful completion of the request that resolves to JSON.
  * @throws {object} - Throws an HTTP error if the response was not successful.
  */
-export default async (endpoint) => await request(endpoint, 'GET');
+export default (endpoint) => request(endpoint, 'GET');
