@@ -1,13 +1,25 @@
+import fetch from 'isomorphic-fetch';
 import request from './request';
 
-// TODO: Mock API response.
+jest.mock('isomorphic-fetch');
 
-describe('request', () => {
-  it('Should make a request to the API.', () => {
-    expect.assertions(1);
-    return request('/wp/v2/posts', 'GET')
-      .then((data) => expect(data.length).toEqual(10));
+test('Should make a request to the API.', async () => {
+  expect.assertions(1);
+
+  // Mock the return value to avoid hitting the API.
+  fetch.mockResolvedValue({
+      json: () => [
+        { id: 1 },
+        { id: 2 },
+        { id: 3 },
+        { id: 4 },
+        { id: 5 },
+      ],
   });
 
-  // TODO: Test error case.
+  // Run the request using the mocked response.
+  const data = await request('/wp/v2/posts', 'GET');
+  expect(data.length).toEqual(5);
 });
+
+// TODO: Test error case.
